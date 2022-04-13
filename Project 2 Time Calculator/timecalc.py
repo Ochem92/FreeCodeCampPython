@@ -28,25 +28,25 @@ def add_time(start_time, add_time, day = None):
 
     if day == None:
         if day_switches == 0:
-            return f"{new_hour}:{new_min} {final_meridian}"
+            new_time =  f"{new_hour}:{new_min} {final_meridian}"
         elif day_switches > (3-meridian_index):
-            return f"{new_hour}:{new_min} {final_meridian} ({total_days} days later)"
+            new_time = f"{new_hour}:{new_min} {final_meridian} ({total_days} days later)"
         elif day_switches > (1-meridian_index):
-            return f"{new_hour}:{new_min} {final_meridian} (next day)"
+            new_time = f"{new_hour}:{new_min} {final_meridian} (next day)"
         else:
-            return f"{new_hour}:{new_min} {final_meridian}"
+            new_time =  f"{new_hour}:{new_min} {final_meridian}"
     else:
 
         day_index = ldays.index(day.lower().capitalize())
         new_day_index = (day_index + total_days) % 7
         if day_switches == 0:
-            return f"{new_hour}:{new_min} {final_meridian}, {ldays[new_day_index]}"
+            new_time = f"{new_hour}:{new_min} {final_meridian}, {ldays[new_day_index]}"
         elif day_switches > (3 - meridian_index):
-            return f"{new_hour}:{new_min} {final_meridian}, {ldays[new_day_index]} ({total_days} days later)"
+            new_time = f"{new_hour}:{new_min} {final_meridian}, {ldays[new_day_index]} ({total_days} days later)"
         elif day_switches > (1 - meridian_index):
-            return f"{new_hour}:{new_min} {final_meridian}, {ldays[new_day_index]} (next day)"
+            new_time = f"{new_hour}:{new_min} {final_meridian}, {ldays[new_day_index]} (next day)"
         else:
-            return f"{new_hour}:{new_min} {final_meridian}, {ldays[new_day_index]}"
-
+            new_time = f"{new_hour}:{new_min} {final_meridian}, {ldays[new_day_index]}"
+    return new_time
 
 
